@@ -1,1 +1,4 @@
 - Khi nó hỏi có tìm thấy source code không -> tra repo github của nó
+- How can I keep Google from indexing my website? -> check file robots.txt, Kiểm tra meta/header “robots” hoặc sitemap.xml
+- Apache Server -> check path ".htaccess", ".htpasswd"
+- Store on Mac -> check path ".DS_Store"
