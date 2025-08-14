@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bookmarklet.md",
+                "file": "Hints.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "bookmarklet"
+              "title": "Hints"
             }
           }
         ],
@@ -73,7 +73,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "File explorer"
+              "title": "Files"
             }
           },
           {
@@ -199,7 +199,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "daily-notes:Open today's note": false,
+      "daily-notes:Open today's daily note": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -210,8 +210,8 @@
   },
   "active": "cef986ad896095e0",
   "lastOpenFiles": [
-    "OWASP Top 10.md",
     "bookmarklet.md",
+    "OWASP Top 10.md",
     "ORM Injection.md",
     "NoSQL Injection.md",
     "Nmap.md",
@@ -219,7 +219,7 @@
     "Links.md",
     "Gobuster.md",
     "LDAP Injection.md",
-    "Notes.md",
+    "Hints.md",
     "Server-side Template Injection.md",
     "Sqlmap.md",
     "XXE Injection.md",
