@@ -180,7 +180,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -193,7 +194,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f684c01294e6511c",
+  "active": "003909c0912b4b3c",
   "lastOpenFiles": [
     "Untitled.md",
     "Sqlmap.md",
