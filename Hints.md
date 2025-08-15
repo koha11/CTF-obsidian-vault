@@ -15,4 +15,4 @@ wget -e robots=off --mirror -k -E -p -np "url"
 # Xem offline (mở trình duyệt vào http://127.0.0.1:8000)
 python3 -m http.server 8000
 ```
-- 
+- Typically, web applications are hosted on `/var/www/html`
