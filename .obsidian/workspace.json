@@ -4,53 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "b6768fad57c4d261",
+        "id": "c24334ab59696f50",
         "type": "tabs",
         "children": [
           {
-            "id": "003909c0912b4b3c",
+            "id": "2083f3b1e4080782",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sqlmap.md",
+                "file": "XSS (Cross-site scripting ).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sqlmap"
+              "title": "XSS (Cross-site scripting )"
             }
           },
           {
-            "id": "fe7e89df40263239",
+            "id": "345ff9f168705523",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LDAP Injection.md",
+                "file": "NoSQL Injection.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LDAP Injection"
-            }
-          },
-          {
-            "id": "cef986ad896095e0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hints.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Hints"
+              "title": "NoSQL Injection"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -73,7 +59,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "File explorer"
             }
           },
           {
@@ -199,7 +185,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "daily-notes:Open today's daily note": false,
+      "daily-notes:Open today's note": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -208,21 +194,23 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cef986ad896095e0",
+  "active": "345ff9f168705523",
   "lastOpenFiles": [
-    "bookmarklet.md",
-    "OWASP Top 10.md",
+    "SQL Injection.md",
     "ORM Injection.md",
+    "Usage of Burp Suite.md",
+    "XSS (Cross-site scripting ).md",
+    "Hints.md",
+    "Sqlmap.md",
+    "LDAP Injection.md",
+    "OWASP Top 10.md",
+    "Server-side Template Injection.md",
+    "Gobuster.md",
+    "bookmarklet.md",
     "NoSQL Injection.md",
     "Nmap.md",
     "Linux.md",
     "Links.md",
-    "Gobuster.md",
-    "LDAP Injection.md",
-    "Hints.md",
-    "Server-side Template Injection.md",
-    "Sqlmap.md",
-    "XXE Injection.md",
-    "SQL Injection.md"
+    "XXE Injection.md"
   ]
 }

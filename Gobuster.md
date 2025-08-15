@@ -3,7 +3,7 @@
 ```
 gobuster dir -u <http://URL> \
   -w /usr/share/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-2.3-medium.txt \
-  -s 200,204,301,302,307,401,403 -t 40 -o gobuster.txt
+  -s 200,204,301,302,307,401,403 -b "" -t 40 -o gobuster.txt
 ```
 
 ```
