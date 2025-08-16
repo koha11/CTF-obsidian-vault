@@ -16,6 +16,8 @@
 ### Sensitive Data Exposure
 - Phá hashed pwd: [CrackStation - Online Password Hash Cracking - MD5, SHA1, Linux, Rainbow Tables, etc.](https://crackstation.net/)
 - Lợi dụng việc dev để file nhạy cảm (.db, .sqlite) ở /root, client có thể truy cập thông qua url (/public, /assets)
+- sử dụng Poison Null Byte để tải file mà server ko cho tải
+	- `http://10.201.43.235/ftp/package.json.bak%2500.md`
 ### XML External Entity (XXE)
 - Được sử dụng khi ứng dụng cho phép load external entities từ XML => dùng external entities trong file xml gửi cho ứng dụng với mục đích là đọc file hệ thống
 - Khi parser XML **cho phép load external entities**, thì đoạn này sẽ cố gắng **đọc nội dung tập tin hệ thống** và chèn nó vào XML đầu ra. Đây chính là cách tấn công **XXE (XML External Entity)**, thường dùng để:
@@ -54,6 +56,11 @@
 </wishlist>
 ```
 
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<data><ID>&xxe;</ID></data>
+```
 ##### in-band XXE attack
 ##### out-of-band XXE attacks (blind XXE)
 ### Broken Access Control

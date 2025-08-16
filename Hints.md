@@ -16,3 +16,26 @@ wget -e robots=off --mirror -k -E -p -np "url"
 python3 -m http.server 8000
 ```
 - Typically, web applications are hosted on `/var/www/html`
+- Hint liên quan đến header của HTTP/1.1 (RFC 2616)
+```
+GET / HTTP/1.1
+Host: mercury.picoctf.net:1270
+Accept-Language: en-US,en,sv-SE;q=0.9 // ngôn ngữ
+Upgrade-Insecure-Requests: 1
+User-Agent: PicoBrowser // trình duyệt
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: mercury.picoctf.net:1270 // ko phải truy cập từ bên ngoài
+Accept-Encoding: gzip, deflate, br
+Date: Mon, 31 Dec 2018 23:59:59 GMT // thời gian
+DNT: 1 // do-not-track
+Connection: keep-alive
+Content-Length: 0
+X-Forwarded-For: 193.180.64.10 // ip ở 1 quốc gia
+```
+- Sử dụng nmap để quét:
+```
+	sudo nmap -sV -p- -T4 \
+  --script="broadcast-avahi-dos,http-enum,http-cookie-flags,http-dombased-xss,http-sql-injection,http-stored-xss,http-fileupload-exploiter" \
+  TARGET_IP
+```
+- Thêm dấu `/` vào cuối endpoint nếu đó là folder :D
