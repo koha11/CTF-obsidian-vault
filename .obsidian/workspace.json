@@ -195,8 +195,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9de1566c0d2064df",
+  "active": "da28e1ef30a62c77",
   "lastOpenFiles": [
+    "Reverse shell",
+    "INJECTIONS/Command Injection.md",
     "TOOLS/Gobuster.md",
     "Hints.md",
     "INJECTIONS/SQL Injection.md",
