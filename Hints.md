@@ -5,7 +5,7 @@
 - Mirror: dùng wget để mirror xong rồi dùng rg để tìm
 	- `rg -n -i -I --glob '!.git/**' 'picoCTF\{|flag'`
 	- `rg -n -i -I 'picoCTF\{|flag|secret|key|passwd|token|base64|=='`
-	- `rg --line-number --ignore-case -I 'picoCTF\{|flag|secret|key|passwd|token|base64|=='`
+	- `rg --line-number --ignore-case -I 'picoCTF\{|flag|secret|key|passwd|token|base64|==' <file cụ thể nếu cần>`
 	- mirror
 ```
 # Tạo bản sao ngoại tuyến
