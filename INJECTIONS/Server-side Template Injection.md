@@ -36,6 +36,9 @@ ${7*7}
 |Node|**EJS**|`<%= 7*7 %>` → `49`|
 |Node|**Pug/Jade**|`#{7*7}` → `49`|
 |Go|**html/template**|Không có toán học trực tiếp; thử `{{.}}` hoặc cố tình lỗi để lộ stack|
+
+<img width="715" height="452" alt="image" src="https://github.com/user-attachments/assets/c768a800-8c0b-4b2d-9182-30b93738edc8" />
+
 #### Kỹ thuật nhận diện & thu hẹp engine
 - **Ký tự bao**: `{{ }}`, `${ }`, `<%= %>`, `#{ }`, `{% %}` gợi ý cụ thể.
 - **Lỗi**: thông điệp/stack trace tiết lộ tên package (`jinja2`, `freemarker`, `org.thymeleaf`, `erb`, `twig`).
