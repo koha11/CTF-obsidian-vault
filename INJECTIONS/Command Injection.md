@@ -1,0 +1,1 @@
+- Có thể sử dụng dấu ; để viết system command khác
