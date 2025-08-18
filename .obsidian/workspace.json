@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "98bef1e380485d6b",
+        "id": "ab5cd1f425064bc4",
         "type": "tabs",
         "children": [
           {
-            "id": "e0189d678a727763",
+            "id": "177030622b6aa7b4",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "Reverse shell.md",
+                "bFile": "Reverse shell.md",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: Reverse shell"
             }
           }
         ]
@@ -175,11 +179,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e0189d678a727763",
+  "active": "177030622b6aa7b4",
   "lastOpenFiles": [
-    "Reverse shell.md",
-    "websocket.md",
+    "msfvenom.md",
     "Prompt Injection.md",
+    "Reverse shell.md",
+    "conflict-files-obsidian-git.md",
+    "TOOLS/Hydra.md",
+    "TOOLS/Crunch.md",
+    "websocket.md",
     "INJECTIONS/Command Injection.md",
     "Hints.md",
     "Reverse shell",
@@ -204,10 +212,6 @@
     "Prompt Injection",
     "INJECTIONS/NoSQL Injection.md",
     "TOOLS/Usage of Burp Suite.md",
-    "OTHERS/XSS (Cross-site scripting ).md",
-    "TOOLS/Sqlmap.md",
-    "INJECTIONS/LDAP Injection.md",
-    "OTHERS/bookmarklet.md",
-    "TOOLS/Linux.md"
+    "OTHERS/XSS (Cross-site scripting ).md"
   ]
 }

