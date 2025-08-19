@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "ab5cd1f425064bc4",
+        "id": "086b91c36ab92b68",
         "type": "tabs",
         "children": [
           {
-            "id": "177030622b6aa7b4",
+            "id": "ed26fcae3f158af0",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "Reverse shell.md",
-                "bFile": "Reverse shell.md",
-                "aRef": ""
+                "file": "TOOLS/Hydra.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: Reverse shell"
+              "icon": "lucide-file",
+              "title": "Hydra"
             }
           }
         ]
@@ -179,25 +179,29 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "177030622b6aa7b4",
+  "active": "ed26fcae3f158af0",
   "lastOpenFiles": [
-    "msfvenom.md",
-    "Prompt Injection.md",
-    "Reverse shell.md",
-    "conflict-files-obsidian-git.md",
-    "TOOLS/Hydra.md",
-    "TOOLS/Crunch.md",
-    "websocket.md",
-    "INJECTIONS/Command Injection.md",
-    "Hints.md",
-    "Reverse shell",
     "TOOLS/Gobuster.md",
-    "INJECTIONS/SQL Injection.md",
+    "TOOLS/Hydra.md",
     "TOOLS/Nmap.md",
-    "Character Encoding.md",
-    "OWASP Top 10.md",
-    "OTHERS/Broken Access Control.md",
+    "CSRF.md",
+    "TOOLS/Sqlmap.md",
+    "Hints.md",
+    "SSRF.md",
+    "OTHERS/XSS (Cross-site scripting ).md",
+    "Reverse shell.md",
     "Database server commands.md",
+    "TOOLS/Crunch.md",
+    "TOOLS/msfvenom.md",
+    "OWASP Top 10.md",
+    "Prompt Injection.md",
+    "websocket.md",
+    "conflict-files-obsidian-git.md",
+    "INJECTIONS/Command Injection.md",
+    "Reverse shell",
+    "INJECTIONS/SQL Injection.md",
+    "Character Encoding.md",
+    "OTHERS/Broken Access Control.md",
     "TOOLS.md",
     "OTHERS",
     "Links.md",
@@ -207,11 +211,7 @@
     "INJECTIONS/Server-side Template Injection.md",
     "INJECTIONS/XXE Injection.md",
     "INJECTIONS/ORM Injection.md",
-    "OTHERS/race condition.md",
     "websocket",
-    "Prompt Injection",
-    "INJECTIONS/NoSQL Injection.md",
-    "TOOLS/Usage of Burp Suite.md",
-    "OTHERS/XSS (Cross-site scripting ).md"
+    "Prompt Injection"
   ]
 }

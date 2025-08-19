@@ -1,0 +1,1 @@
+- **CSRF (Cross-Site Request Forgery)** là một lỗ hổng bảo mật trên web, cho phép kẻ tấn công **lừa người dùng đã đăng nhập** gửi một yêu cầu độc hại đến ứng dụng web mà họ đang có phiên đăng nhập hợp lệ

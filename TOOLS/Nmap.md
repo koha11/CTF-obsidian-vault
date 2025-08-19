@@ -24,4 +24,5 @@ sudo nmap -sS -p1-1000 --reason 10.10.10.10
 
 # Xuất log đầy đủ
 sudo nmap -A -p- -oA scan_full 10.10.10.10
+
 ```

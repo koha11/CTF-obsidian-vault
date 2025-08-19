@@ -35,7 +35,7 @@
 | --priv-esc     | Database process user privilege escalation            |
 | --os-smbrelay  | One-click prompt for an OOB shell, Meterpreter or VNC |
 
-### Thứ tự mẫu
+### Payload mẫu
 - ``sqlmap -u https://testsite.com/page.php?id=7 --dbs``: nếu website dùng query parameter
 - `sqlmap -r <request_file> -p <vulnerable_parameter> --dbs`: nếu website sử dụng post method với vulnerable_parameter được đính vào trong formdata -> request_file là nội dung request header của request được gửi đi ta copy trên trang web
 - `\n vulnerable_parameter=B%2B`: thêm dòng data cho giá trị được gửi đi vào request_file
