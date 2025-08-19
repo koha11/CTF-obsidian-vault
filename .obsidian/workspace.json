@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TOOLS/Hydra.md",
+                "file": "LFI.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Hydra"
+              "title": "LFI"
             }
           }
         ]
@@ -182,8 +182,10 @@
   },
   "active": "ed26fcae3f158af0",
   "lastOpenFiles": [
-    "TOOLS/Gobuster.md",
     "TOOLS/Hydra.md",
+    "OSINT Techniques.md",
+    "LFI.md",
+    "TOOLS/Gobuster.md",
     "TOOLS/Nmap.md",
     "CSRF.md",
     "TOOLS/Sqlmap.md",
@@ -210,8 +212,6 @@
     "TOOLS",
     "INJECTIONS.md",
     "INJECTIONS/Server-side Template Injection.md",
-    "INJECTIONS/XXE Injection.md",
-    "INJECTIONS/ORM Injection.md",
     "websocket",
     "Prompt Injection"
   ]
