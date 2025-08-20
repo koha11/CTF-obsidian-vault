@@ -84,6 +84,13 @@ END;
 - **Alternate Characters**: 
 	- `%09` (horizontal tab), `%0A` (line feed), `%0C` (form feed), `%0D` (carriage return), and `%A0` (non-breaking space)
 	- `%27%0A||%0A1=1%0A--%27+`: sample payload
+##### Filters: or and true false union like = > < ; -- /* */ admin
+- `''' '''`: comment
+- `'ad'||'min'`: nối chuỗi
+- `'' glob '*'`: check regex
+- payload: 
+	- username: `ad' || 'min`
+	- password: `' glob '*`
 ## Other Techniques
 ##### HTTP Header Injection
 - `User-Agent: ' UNION SELECT book_id,flag FROM books; #`
